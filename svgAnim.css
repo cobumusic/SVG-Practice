@@ -1,0 +1,23 @@
+#frontSVG{
+  margin-left:-1px;
+  z-index:10;
+  stroke-dasharray:7546; /* calculated by opening console -> document.querySelector("#frontSVG > path").getTotalLength(), which returns total SVG strokes to unmask
+*/
+  animation: 5.5s fillSvg linear infinite;
+}
+
+#bgSVG{
+  position:absolute;
+  left:0;
+  z-index:-10;
+}
+
+/* unmasks SVG by undoing its stroke-dasharray*/
+@keyframes fillSvg{
+  0%{
+    stroke-dashoffset:0; 
+  }
+  100%{
+    stroke-dashoffset:7546;
+  }
+}
